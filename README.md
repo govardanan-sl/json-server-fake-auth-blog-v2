@@ -4,8 +4,7 @@ A Fake REST API using json-server with JWT authentication.
 
 Implemented End-points: login,register
 
-## Install
-
+## Installc
 ```bash
 $ npm install
 $ npm run start-auth
