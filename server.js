@@ -6,7 +6,7 @@ const port = process.env.PORT || 8000;
 
 const server = jsonServer.create()
 const router = jsonServer.router('./db.json')
-const userdb = JSON.parse(fs.readFileSync('./users.json', 'UTF-8'))
+var userdb = JSON.parse(fs.readFileSync('./users.json', 'UTF-8'))
 
 server.use(bodyParser.urlencoded({extended: true}))
 server.use(bodyParser.json())
@@ -28,6 +28,7 @@ function verifyToken(token){
 
 // Check if the user exists in database
 function isAuthenticated({email, password}){
+  console.log(userdb.users);
   return userdb.users.findIndex(user => user.email === email && user.password === password) !== -1
 }
 function getId(email){
@@ -63,7 +64,8 @@ fs.readFile("./users.json", (err, data) => {
     var last_item_id = data.users[data.users.length-1].id;
 
     //Add new user
-    data.users.push({id: last_item_id + 1, email: email, password: password}); //add some data
+    data.users.push({id: last_item_id + 1, email: email, password: password}); 
+    //add some data
     var writeData = fs.writeFile("./users.json", JSON.stringify(data), (err, result) => {  // WRITE
         if (err) {
           const status = 401
@@ -71,7 +73,9 @@ fs.readFile("./users.json", (err, data) => {
           res.status(status).json({status, message})
           return
         }
+        userdb = JSON.parse(fs.readFileSync('./users.json', 'UTF-8'))
     });
+
 });
 
 // Create token for new user
