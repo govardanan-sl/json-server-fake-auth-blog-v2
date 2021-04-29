@@ -1,0 +1,66 @@
+{
+    "posts": [
+      {
+        "title": "Post 2",
+        "body": "This is just a post",
+        "author": "bruce",
+        "author_id":1,
+        "id": 1
+      },
+      {
+        "title": "Post 2",
+        "body": "Just an another Post",
+        "author": "bruce",
+        "author_id":1,
+        "id": 2
+      },
+      {
+        "title": "Another User",
+        "body": "Just an another Post",
+        "author": "Govardanan",
+        "author_id":2,
+        "id": 3
+      },
+      {
+        "title": "Food",
+        "body": "Food is greate",
+        "author": "bruce",
+        "author_id":1,
+        "id": 4
+      },
+      {
+        "title": "My Life",
+        "body": "Posted through Form ",
+        "author": "bruce",
+        "author_id":1,
+        "id": 5
+      },
+      {
+        "title": "Last One",
+        "body": "Testing Redirects",
+        "author": "Anonymous",
+        "author_id":3,
+        "id": 9
+      }
+    ],
+    "comments": [
+      { "id": 1, "body": "some comment", "postId": 1 }
+    ],
+    "profile": [
+      {
+        "id":1,
+        "name": "brucegrapes",
+        "email" : "brucegrapes2001@gmail.com"
+      },
+      {
+        "id":2,
+        "name": "Govardanan",
+        "email": "govardanan.gms@gmail.com"
+      },
+      {
+        "id":3,
+        "name":"Anonymous",
+        "email" : "anonymous@unknown.com"
+      }
+    ]
+  }
