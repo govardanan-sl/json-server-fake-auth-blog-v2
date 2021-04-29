@@ -30,6 +30,10 @@ function verifyToken(token){
 function isAuthenticated({email, password}){
   return userdb.users.findIndex(user => user.email === email && user.password === password) !== -1
 }
+function getId(email){
+  return userdb.users.find(user => user.email === email);
+}
+
 
 // Register New User
 server.post('/auth/register', (req, res) => {
@@ -87,9 +91,11 @@ server.post('/auth/login', (req, res) => {
     res.status(status).json({status, message})
     return
   }
+  let id= getId(email);
+  id=id.id;
   const access_token = createToken({email, password})
   console.log("Access Token:" + access_token);
-  res.status(200).json({access_token})
+  res.status(200).json({access_token,id})
 })
 
 server.use(/^(?!\/auth).*$/,  (req, res, next) => {
